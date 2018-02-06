@@ -1,0 +1,47 @@
+
+
+
+<jsp:root version="2.0"
+    xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    
+            <div class="tabular">  
+
+                <div class="fila">
+                    <div class="col">  
+                        <div class="campo">
+                            <label 
+                                    for="labor">Labor:</label>                             
+                            <input 
+                                    TYPE="TEXT"
+                                    name="labor"                                                
+                                    id="labf_labor"
+                                    value="0"
+                                    class="t5n"
+                                    />
+                        </div>
+                    </div>  
+                </div>  
+
+                <div class="fila">
+                    <div class="col">  
+                        <div class="campo">
+                            <label 
+                                    for="descripcion">Descripcion:</label>                             
+                            <input 
+                                    TYPE="TEXT"
+                                    name="descripcion"                                                
+                                    id="labf_descripcion"                                    
+                                    class="t20"
+                                    />
+                        </div>
+                    </div>  
+                </div>  
+
+            </div>
+    
+</jsp:root>
+                
+
+

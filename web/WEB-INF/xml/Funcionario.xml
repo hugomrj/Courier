@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<root>
+    
+    <table 
+        name="aplicacion.funcionarios">      
+        
+            <id name="funcionario"/>            
+            <column name="cedula"/>
+            <column name="nombre"/>  
+            <column name="apellido"/>  
+            <column name="fecha_nacimiento"/>  
+            
+            <column name="categoria" foreign = "FuncionarioCategoria"/> 
+            <column name="usuario" foreign = "Usuario"/> 
+            
+    </table>
+    
+</root>
+

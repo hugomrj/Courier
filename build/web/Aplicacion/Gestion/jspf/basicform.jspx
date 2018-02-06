@@ -1,0 +1,266 @@
+
+
+
+<jsp:root version="2.0"
+    xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core">
+    
+            <div class="tabular">  
+
+
+                <input TYPE="hidden" 
+                   id ="gesf_gestion"
+                   name="gestion"
+                   value="0"
+                   />                    
+                
+                
+                
+                <div class="fila">
+                    <div class="col">
+                        <div class="campo">
+
+                                <label for="cliente">Cliente:</label> 
+
+                                <input TYPE="TEXT" 
+                                       id ="gesf_cliente"
+                                       name="cliente" 
+                                       size ="10"
+                                       class = "FKt5n"
+                                       />      
+
+                                       <a 
+                                            href="javascript:void(0);" 
+                                            class="boton_svg"
+                                            id="gesf_cliente_buscar"
+                                            >
+                                           <img src="../../svg/more.svg" width="24"/>                            
+                                        </a>                            
+                                
+                                        <a                                         
+                                            href="javascript:void(0);" 
+                                            class="boton_svg"                                        
+                                            id="gesf_cliente_agregar"
+                                            >
+                                            <img src="../../svg/add.svg" width="24"/>                            
+                                        </a>                                
+
+                                <output       
+                                        class="t20"
+                                        id="cliente_descripcion">         
+                                </output>                                
+
+
+                        </div>
+                    </div>  
+                </div>                                 
+
+
+
+                
+  
+                <div class="fila">
+                    <div class="col">  
+                        <div class="campo">
+                            <label 
+                                    for="fecha">Fecha:</label>                             
+                            <input 
+                                TYPE="date"
+                                    name="fecha"                                                
+                                    id="gesf_fecha"                                                                                                       
+                                    />
+                        </div>
+                    </div>  
+                </div>  
+                
+                
+                
+                
+                
+                <div class="fila">
+                    <div class="col">  
+                        <div class="campo">
+                            <label 
+                                    for="solicito">Solicito:</label>                             
+                            <input 
+                                    TYPE="TEXT"
+                                    name="solicito"                                                
+                                    id="gesf_solicito"                                    
+                                    class="t20"                                    
+                                    />
+                        </div>
+                    </div>  
+                </div>  
+
+
+                
+                <div class="fila">
+                    <div class="col">  
+                        <div class="campo">
+                            <label 
+                                    for="destino">Destino:</label>                             
+                            <input 
+                                    TYPE="TEXT"
+                                    name="destino"                                                
+                                    id="gesf_destino"                                    
+                                    class="t30"                                    
+                                    />
+                        </div>
+                    </div>  
+                </div>  
+
+                
+                <div class="fila">
+                    <div class="col">
+                        <div class="campo">
+
+                                <label for="gestor">Gestor:</label> 
+
+                                <input TYPE="TEXT" 
+                                       id ="gesf_gestor"
+                                       name="gestor" 
+                                       size ="10"
+                                       class = "FKt5n"
+                                       />      
+
+                                       <a 
+                                            href="javascript:void(0);" 
+                                            class="boton_svg"
+                                            id="gesf_gestor_buscar"
+                                            >
+                                           <img src="../../svg/more.svg" width="24"/>                            
+                                        </a>                            
+
+                                <output       
+                                        class="t20"
+                                        id="gestor_descripcion">         
+                                </output>                                
+
+
+                        </div>
+                    </div>  
+                </div>                                 
+                
+
+                
+                
+                <div class="fila">
+                    <div class="col">  
+                        <div class="campo">
+                            <label 
+                                    for="ciudad">Ciudad:</label>                             
+                            <input 
+                                    TYPE="TEXT"
+                                    name="ciudad"                                                
+                                    id="gesf_ciudad"                                    
+                                    class="t20"                                    
+                                    />
+                        </div>
+                    </div>  
+                </div>  
+                
+
+                <div class="fila">
+                    <div class="col">
+                        <div class="campo">
+
+                                <label for="labor">Labor:</label> 
+
+                                <input TYPE="TEXT" 
+                                       id ="gesf_labor"
+                                       name="labor" 
+                                       size ="10"
+                                       class = "FKt5n"
+                                       />      
+
+                                       <a 
+                                            href="javascript:void(0);" 
+                                            class="boton_svg"
+                                            id="gesf_labor_buscar"
+                                            >
+                                           <img src="../../svg/more.svg" width="24"/>                            
+                                        </a>                            
+                                
+                                        <a                                         
+                                            href="javascript:void(0);" 
+                                            class="boton_svg"                                        
+                                            id="gesf_labor_agregar"
+                                            >
+                                            <img src="../../svg/add.svg" width="24"/>                            
+                                        </a>                                
+
+                                <output       
+                                        class="t20"
+                                        id="labor_descripcion">         
+                                </output>                                
+
+
+                        </div>
+                    </div>  
+                </div>                                 
+                
+                
+
+
+                <div class="fila">
+                    <div class="col">  
+                        <div class="campo">
+                            <label for="monto">Monto:</label> 
+                            <input 
+                                    TYPE="TEXT"
+                                    name="monto"                                                
+                                    id="gesf_monto"
+                                    value="0"
+                                    class="t10n"
+                                    />
+                        </div>
+                    </div>  
+                </div>                       
+
+                
+                
+                <div class="fila">
+                    <div class="col">  
+                        <div class="campo">
+                            <label for="retorno">Retorno:</label> 
+                            <input 
+                                    TYPE="TEXT"
+                                    name="retorno"                                                
+                                    id="gesf_retorno"
+                                    value="0"
+                                    class="t10n"
+                                    />
+                        </div>
+                    </div>  
+                </div>                       
+
+
+                <div class="fila">
+                    <div class="col">  
+                        <div class="campo">
+                            <label for="total">Total:</label> 
+                            <input 
+                                    TYPE="TEXT"
+                                    name="total"                                                
+                                    id="gesf_total"
+                                    value="0"
+                                    class="t10n"
+                                    />
+                        </div>
+                    </div>  
+                </div>                       
+                
+
+                
+
+                
+                
+                
+        </div>
+                
+                
+    
+</jsp:root>
+                
+
+

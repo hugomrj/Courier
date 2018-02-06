@@ -1,0 +1,54 @@
+
+<jsp:root version="2.0"
+    xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core">
+    
+        
+        <c:set var = "totalRegistros" scope ="page" value = "${totalRegistros}"/>
+    
+        
+        <table class="tableA"
+               id="gestor_tabla"
+               data-totalregistros="${totalRegistros}"
+               >
+            
+                <thead>
+                    <tr>
+                       <th class="c7">funcionario</th>
+                       <th class="c10">cedula</th>                       
+                       <th class="c20">nombres</th>                        
+                       <th class="c10">usuario</th>                        
+
+                       
+                    </tr>
+                </thead>
+                <tbody>
+
+                    
+                    <c:forEach items="${lista}" var ="lista" >
+
+                        <tr 
+                            data-linea_id ="${lista.funcionario}"
+                            >     
+                                                       
+                            <td class="c7"> ${lista.funcionario}</td>
+                            <td class="c10n"> ${lista.cedula} </td>         
+                            <td class="c20t"> ${lista.nombre} ${lista.apellido}  </td>                                     
+                            <td class="c10t"> ${lista.cuenta} </td>         
+                            
+
+                        </tr>  
+                    </c:forEach>
+                </tbody>
+                
+        </table>
+
+
+    
+</jsp:root>
+                
+
+
+
+
+

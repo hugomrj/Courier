@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <table 
+        name="aplicacion.gestiones">      
+        
+            <id name="gestion"/>
+            <column name="cliente" foreign = "Cliente"/>  
+            <column name="fecha"/>  
+            <column name="solicito"/>  
+            <column name="destino"/>  
+            <column name="gestor" foreign = "Funcionario"/>  
+            <column name="ciudad"/>  
+            <column name="labor" foreign = "Labor" />  
+            <column name="monto"/>  
+            <column name="retorno"/>  
+            <column name="total"/>  
+                        
+    </table>
+    
+</root>

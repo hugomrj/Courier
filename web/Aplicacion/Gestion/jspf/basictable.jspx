@@ -1,0 +1,49 @@
+
+<jsp:root version="2.0"
+    xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core">
+        
+        <c:set var = "totalRegistros" scope ="page" value = "${totalRegistros}"/>        
+        <table class="tableA"
+               id="gestion_tabla"
+               data-totalregistros="${totalRegistros}"
+               >            
+                <thead>
+                    <tr>
+                       <th class="c20">cliente</th>
+                       <th class="c10">fecha</th>                       
+                       <th class="c15">solicito</th>                       
+                       <th class="c15">destino</th>                       
+                       <th class="c15">gestor</th>                       
+                       <th class="c15">ciudad</th>                       
+                       <th class="c15">labor</th>                       
+                       <th class="c10">monto</th>                       
+                       <th class="c10">retorno</th>                       
+                       <th class="c10">total</th>                       
+                    </tr>
+                </thead>
+                <tbody>                    
+                    <c:forEach items="${lista}" var ="lista" >
+                        <tr 
+                            data-linea_id ="${lista.gestion}">    
+                            
+                            <td class="c20t"> ${lista.cliente_nombre} </td>  
+                            <td class="c10t"> ${lista.fecha} </td>  
+                            <td class="c15t"> ${lista.solicito} </td>  
+                            <td class="c15t"> ${lista.destino} </td>  
+                            <td class="c15t"> ${lista.gestor_nombre} </td>  
+                            <td class="c15t"> ${lista.ciudad} </td>  
+                            <td class="c15t"> ${lista.labor_descripcion} </td>  
+                            <td class="c10n"> ${lista.monto} </td>  
+                            <td class="c10n"> ${lista.retorno} </td>  
+                            <td class="c10n"> ${lista.total} </td>  
+                        </tr>  
+                    </c:forEach>
+                </tbody>                
+        </table>
+</jsp:root>
+
+
+
+
+
