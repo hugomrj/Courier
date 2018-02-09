@@ -2,13 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
+
 package py.com.itx.sistema.recurso;
 
 
 public class Recurso {
     
     private Integer recurso;
-    private String direccion;
+    private String url;
 
     public Integer getRecurso() {
         return recurso;
@@ -18,13 +21,15 @@ public class Recurso {
         this.recurso = recurso;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getUrl() {
+        return url;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setUrl(String url) {
+        this.url = url;
     }
+
+
 
 
     

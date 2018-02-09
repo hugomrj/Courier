@@ -41,6 +41,18 @@
                 <jsp:include page="../../js/componente/Sistema/RolInteraccion/basictableRol.js"/>
                 
 
+                <jsp:include page="../../js/componente/Sistema/InteraccionRecurso/basictableRecurso.js"/>
+                <jsp:include page="../../js/componente/Sistema/InteraccionRecurso/basicformRecurso.js"/>
+                
+    
+                <jsp:include page="../../js/componente/Sistema/Recurso/basictable.js"/>
+                <jsp:include page="../../js/componente/Sistema/Recurso/basicform.js"/>
+
+
+
+
+
+
             </script>             
             
             
@@ -124,16 +136,21 @@
                     <article>
                             <div class="contenedorTabs">
                                 <ul>
-                                        <li>
-                                            <a href="javascript:void(0);" 
-                                               class="select"
-                                               id="tab_roles"
-                                               >Roles
-                                            </a>
-                                        </li>
+                                    <li>
+                                        <a href="javascript:void(0);" 
+                                           class="select"
+                                           id="tab_roles"
+                                           >Roles
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);"                                            
+                                           id="tab_recursos"
+                                           >Recursos
+                                        </a>
+                                    </li>
                                 </ul>
-                            </div>               
-                             
+                            </div>      
                     </article>                        
 
                            

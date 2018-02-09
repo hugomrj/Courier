@@ -33,8 +33,8 @@
                 
                 <jsp:include page="../../js/ajax/libreria.js" />                
                 <jsp:include page="../../js/utilidad/funciones.js"/>
-                <jsp:include page="../../js/componente/Sistema/Interaccion/Lista.js"/>
-                <jsp:include page="../../js/componente/Sistema/Interaccion/basictable.js"/>
+                <jsp:include page="../../js/componente/Sistema/Recurso/Lista.js"/>
+                <jsp:include page="../../js/componente/Sistema/Recurso/basictable.js"/>
                 
                     
                 
@@ -96,7 +96,7 @@
                             <a 
                                 href="javascript:void(0);" 
                                 class="botonEnlace"
-                                id="Interaccion_agregar"
+                                id="Recurso_agregar"
                                 >
                                 Nuevo</a>
                         </div>                             

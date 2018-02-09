@@ -125,6 +125,19 @@ function AjaxUrl (url) {
     }
 }
 
+            
+
+function existeUrl(url) {   
+   objetoAjax.open('HEAD', url, false);
+   objetoAjax.send();
+   if (objetoAjax.status != 404){
+       return true;
+   }
+   else{
+       return false ;
+   }
+   
+}
 
 
 /*

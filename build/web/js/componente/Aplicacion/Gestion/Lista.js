@@ -10,14 +10,6 @@ window.onload = function() {
 // o crear una funcion para que se encargue de la autenficacion
 
 
-var pathname = window.location.pathname;
-alert(pathname);
-alert(getRutaAbsoluta());
-
-
-
-
-
     AjaxPeticion(getRutaAbsoluta()+'/MenuPrincipal','nav');      
     
     Gestiones_tabla_lista ( );    

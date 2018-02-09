@@ -95,8 +95,7 @@ function Rol_Tabulaciones() {
                 +"&page="+"1"
                 ,'tab_contenido');                     
             
-            UsuarioRol_tabla_registro_Usuario("usuariorol_usuario_tabla");
-            
+            UsuarioRol_tabla_registro_Usuario("usuariorol_usuario_tabla");            
             
             var usuariorol_usuario_agregar = document.getElementById('usuariorol_usuario_agregar');
             usuariorol_usuario_agregar.addEventListener('click',
@@ -105,8 +104,7 @@ function Rol_Tabulaciones() {
                     UsuarioRol_modal_agregar_Usuario(  document.getElementById('rolf_rol').value );            
                 },
                 false
-            );                
-            
+            );                            
             
         },
         false
@@ -123,12 +121,10 @@ function Rol_Tabulaciones() {
                 + document.getElementById('rolf_rol').value 
                 +""  
                 +"&page="+"1"
-                ,'tab_contenido');                     
-            
+                ,'tab_contenido');                                 
             
             RolInteraccion_tabla_registro_Interaccion("rolinteraccion_interaccion_tabla");
-            
-            
+                        
             var riir_agregar_roles = document.getElementById('riir_agregar_roles');
             riir_agregar_roles.addEventListener('click',
                 function()
@@ -136,13 +132,11 @@ function Rol_Tabulaciones() {
                     RolInteraccion_modal_agregar_Interaccion(  document.getElementById('rolf_rol').value );            
                 },
                 false
-            );                
-                        
+            );                                        
         },
         false
     );      
-        
-    
+            
     tab_usuarios.click();
     
 }

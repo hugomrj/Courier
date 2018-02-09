@@ -54,6 +54,11 @@ window.onload = function() {
 
 };
 
+
+
+
+
+
 window.onresize = function() {
     
     var nodeList = document.querySelectorAll('.fondo_oscuro');
@@ -70,11 +75,18 @@ window.onresize = function() {
 function Interaccion_Tabulaciones() {
     
     var tab_roles = document.getElementById('tab_roles');
+    var tab_recursos = document.getElementById('tab_recursos');
+    
+    
     
     
     var fxDesmarcar = function () {
         tab_roles.classList.remove('select');          
+        tab_recursos.classList.remove('select');          
     }
+    
+    
+    
     
 
     tab_roles.addEventListener('click',
@@ -87,29 +99,53 @@ function Interaccion_Tabulaciones() {
                 + document.getElementById('interf_interaccion').value 
                 +""  
                 +"&page="+"1"
-                ,'tab_contenido');                     
-            
+                ,'tab_contenido');       
             
             RolInteraccion_tabla_registro_Rol("rolinteraccion_rol_tabla");
-            
             
             var rira_agregar_roles = document.getElementById('rira_agregar_roles');
             rira_agregar_roles.addEventListener('click',
                 function()
-                {                   
-                                        
-                    RolInteraccion_modal_agregar_Rol(  document.getElementById('interf_interaccion').value );            
-                    
+                {                                                           
+                    RolInteraccion_modal_agregar_Rol(  document.getElementById('interf_interaccion').value );                                
                 },
                 false
             );                       
-            
-            
-            
-            
         },
         false
     );      
+    
+    
+    
+    
+    tab_recursos.addEventListener('click',
+        function()
+        {          
+            fxDesmarcar();
+            tab_recursos.setAttribute("class", "select");      
+            
+            
+            AjaxPeticion( getRutaAbsoluta()+'/InteraccionRecurso/Coleccion/Recurso?interaccion='
+                + document.getElementById('interf_interaccion').value 
+                +""  
+                +"&page="+"1"
+                ,'tab_contenido');       
+
+      
+            InteraccionRecurso_tabla_registro_Recurso("interaccionRecurso_recurso_tabla");
+            
+            var irra_agregar_recurso = document.getElementById('irra_agregar_recurso');
+            irra_agregar_recurso.addEventListener('click',
+                function()
+                {                                
+                    InteraccionRecurso_modal_agregar_Recurso(  document.getElementById('interf_interaccion').value );                                                    
+                },
+                false
+            );                       
+        },
+        false
+    );      
+    
     
      
     tab_roles.click();

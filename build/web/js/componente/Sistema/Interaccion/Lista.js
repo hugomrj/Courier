@@ -3,8 +3,8 @@ var page = 1;
 
 window.onload = function() {
 
-    page = getParametroValor('page'); 
-    AjaxPeticion('../../MenuPrincipal','nav');   
+    page = getParametroValor('page');     
+    AjaxPeticion(getRutaAbsoluta()+'/MenuPrincipal','nav');      
    
    
     Interacciones_tabla_lista();    

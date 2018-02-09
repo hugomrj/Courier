@@ -45,8 +45,7 @@ public class Usuario {
         
     
        
-    
-    
+       
     
       public static Usuario existeUsuario(String cuenta, String pass) throws Exception {      
 
@@ -61,9 +60,14 @@ public class Usuario {
 
           Persistencia persistencia = new Persistencia();            
           objUsuario = (Usuario) persistencia.sqlToObject(sql, objUsuario);
-          objUsuario.setCuenta("");
+          
+          if (objUsuario != null){
+            objUsuario.setCuenta("");
+          }
+          
 
           return objUsuario;          
+          
 
       }
      
