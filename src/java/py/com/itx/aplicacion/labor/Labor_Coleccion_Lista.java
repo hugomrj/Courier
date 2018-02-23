@@ -58,7 +58,7 @@ public class Labor_Coleccion_Lista extends HttpServlet {
             request.setAttribute("totalRegistros", dao.totalRegistros);
             
         
-        request.getRequestDispatcher("/Aplicacion/Labor/jspf/basictable.jspx").include(request, response);                
+        request.getRequestDispatcher("/error403.jspx").include(request, response);                
         
         
     }

@@ -37,21 +37,23 @@ public String  SubLista ( Object objeto) {
         
         
         sql = 
-            " SELECT \n" +
-            "  interacciones_x_recursos.id, \n" +
-            "  recursos.recurso, \n" +
-            "  recursos.url, \n" +
-            "  interacciones.interaccion, \n" +
-            "  interacciones.nombre_interaccion, \n" +
-            "  interacciones.modulo, \n" +
-            "  interacciones.orden\n" +
-            " FROM \n" +
-            "  administracion.interacciones_x_recursos, \n" +
-            "  administracion.recursos, \n" +
-            "  administracion.interacciones\n" +
-            " WHERE \n" +
-            "  interacciones_x_recursos.recurso = recursos.recurso AND\n" +
-            "  interacciones.interaccion = interacciones_x_recursos.interaccion " 
+            "          SELECT  \n" +
+            "              interacciones_x_recursos.id,  \n" +
+            "              recursos.recurso,  \n" +
+            "              recursos.url,  \n" +
+            "              interacciones.interaccion,  \n" +
+            "              interacciones.nombre_interaccion,  \n" +
+            "              interacciones.modulo,  modulos.descripcion modulo_descripcion,\n" +
+            "              interacciones.orden \n" +
+            "             FROM  \n" +
+            "              administracion.interacciones_x_recursos,  \n" +
+            "              administracion.recursos,  \n" +
+            "              administracion.interacciones, \n" +
+            "              administracion.modulos\n" +
+            "             WHERE  \n" +
+            "              interacciones_x_recursos.recurso = recursos.recurso AND \n" +
+            "              interacciones.interaccion = interacciones_x_recursos.interaccion  and \n" +
+            "              interacciones.modulo = modulos.modulo " 
             + andwhere;       
         
         return sql ;

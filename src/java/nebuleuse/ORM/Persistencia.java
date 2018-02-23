@@ -133,15 +133,6 @@ public class Persistencia {
         strValues = strValues +" ) " ;
 
         strSQL = strInsert + strColums + strValues + strRETURNING;
-        
-
-
-        
-        
-System.out.println(strSQL);
-        
-
-
 
         Integer intID = 0;  
             

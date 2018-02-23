@@ -5,7 +5,7 @@
 -- Dumped from database version 9.5.4
 -- Dumped by pg_dump version 9.5.4
 
--- Started on 2017-12-01 11:25:44
+-- Started on 2018-02-23 17:30:22
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -44,7 +44,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2292 (class 0 OID 0)
+-- TOC entry 2294 (class 0 OID 0)
 -- Dependencies: 1
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -165,13 +165,27 @@ CREATE SEQUENCE interacciones_interaccion_seq
 ALTER TABLE interacciones_interaccion_seq OWNER TO postgres;
 
 --
--- TOC entry 2293 (class 0 OID 0)
+-- TOC entry 2295 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: interacciones_interaccion_seq; Type: SEQUENCE OWNED BY; Schema: administracion; Owner: postgres
 --
 
 ALTER SEQUENCE interacciones_interaccion_seq OWNED BY interacciones.interaccion;
 
+
+--
+-- TOC entry 210 (class 1259 OID 96730)
+-- Name: interacciones_x_recursos; Type: TABLE; Schema: administracion; Owner: postgres
+--
+
+CREATE TABLE interacciones_x_recursos (
+    id integer NOT NULL,
+    recurso integer NOT NULL,
+    interaccion integer NOT NULL
+);
+
+
+ALTER TABLE interacciones_x_recursos OWNER TO postgres;
 
 --
 -- TOC entry 185 (class 1259 OID 96577)
@@ -193,7 +207,7 @@ ALTER TABLE modulos OWNER TO postgres;
 
 CREATE TABLE recursos (
     recurso integer NOT NULL,
-    direccion character varying
+    url character varying
 );
 
 
@@ -215,27 +229,13 @@ CREATE SEQUENCE recursos_recurso_seq
 ALTER TABLE recursos_recurso_seq OWNER TO postgres;
 
 --
--- TOC entry 2294 (class 0 OID 0)
+-- TOC entry 2296 (class 0 OID 0)
 -- Dependencies: 207
 -- Name: recursos_recurso_seq; Type: SEQUENCE OWNED BY; Schema: administracion; Owner: postgres
 --
 
 ALTER SEQUENCE recursos_recurso_seq OWNED BY recursos.recurso;
 
-
---
--- TOC entry 210 (class 1259 OID 96730)
--- Name: recursos_x_roles; Type: TABLE; Schema: administracion; Owner: postgres
---
-
-CREATE TABLE recursos_x_roles (
-    id integer NOT NULL,
-    rol integer,
-    recurso integer
-);
-
-
-ALTER TABLE recursos_x_roles OWNER TO postgres;
 
 --
 -- TOC entry 209 (class 1259 OID 96728)
@@ -253,12 +253,12 @@ CREATE SEQUENCE recursos_x_roles_id_seq
 ALTER TABLE recursos_x_roles_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2295 (class 0 OID 0)
+-- TOC entry 2297 (class 0 OID 0)
 -- Dependencies: 209
 -- Name: recursos_x_roles_id_seq; Type: SEQUENCE OWNED BY; Schema: administracion; Owner: postgres
 --
 
-ALTER SEQUENCE recursos_x_roles_id_seq OWNED BY recursos_x_roles.id;
+ALTER SEQUENCE recursos_x_roles_id_seq OWNED BY interacciones_x_recursos.id;
 
 
 --
@@ -290,7 +290,7 @@ CREATE SEQUENCE roles_rol_seq
 ALTER TABLE roles_rol_seq OWNER TO postgres;
 
 --
--- TOC entry 2296 (class 0 OID 0)
+-- TOC entry 2298 (class 0 OID 0)
 -- Dependencies: 187
 -- Name: roles_rol_seq; Type: SEQUENCE OWNED BY; Schema: administracion; Owner: postgres
 --
@@ -328,7 +328,7 @@ CREATE SEQUENCE roles_x_interacciones_id_seq
 ALTER TABLE roles_x_interacciones_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2297 (class 0 OID 0)
+-- TOC entry 2299 (class 0 OID 0)
 -- Dependencies: 189
 -- Name: roles_x_interacciones_id_seq; Type: SEQUENCE OWNED BY; Schema: administracion; Owner: postgres
 --
@@ -366,7 +366,7 @@ CREATE SEQUENCE usuarios_usuario_seq
 ALTER TABLE usuarios_usuario_seq OWNER TO postgres;
 
 --
--- TOC entry 2298 (class 0 OID 0)
+-- TOC entry 2300 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: usuarios_usuario_seq; Type: SEQUENCE OWNED BY; Schema: administracion; Owner: postgres
 --
@@ -404,7 +404,7 @@ CREATE SEQUENCE usuarios_x_roles_id_seq
 ALTER TABLE usuarios_x_roles_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2299 (class 0 OID 0)
+-- TOC entry 2301 (class 0 OID 0)
 -- Dependencies: 193
 -- Name: usuarios_x_roles_id_seq; Type: SEQUENCE OWNED BY; Schema: administracion; Owner: postgres
 --
@@ -451,7 +451,7 @@ CREATE SEQUENCE clientes_cliente_seq
 ALTER TABLE clientes_cliente_seq OWNER TO postgres;
 
 --
--- TOC entry 2300 (class 0 OID 0)
+-- TOC entry 2302 (class 0 OID 0)
 -- Dependencies: 195
 -- Name: clientes_cliente_seq; Type: SEQUENCE OWNED BY; Schema: aplicacion; Owner: postgres
 --
@@ -506,7 +506,7 @@ CREATE SEQUENCE funcionarios_funcionario_seq
 ALTER TABLE funcionarios_funcionario_seq OWNER TO postgres;
 
 --
--- TOC entry 2301 (class 0 OID 0)
+-- TOC entry 2303 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: funcionarios_funcionario_seq; Type: SEQUENCE OWNED BY; Schema: aplicacion; Owner: postgres
 --
@@ -552,7 +552,7 @@ CREATE SEQUENCE gestiones_gestion_seq
 ALTER TABLE gestiones_gestion_seq OWNER TO postgres;
 
 --
--- TOC entry 2302 (class 0 OID 0)
+-- TOC entry 2304 (class 0 OID 0)
 -- Dependencies: 200
 -- Name: gestiones_gestion_seq; Type: SEQUENCE OWNED BY; Schema: aplicacion; Owner: postgres
 --
@@ -589,7 +589,7 @@ CREATE SEQUENCE labores_labor_seq
 ALTER TABLE labores_labor_seq OWNER TO postgres;
 
 --
--- TOC entry 2303 (class 0 OID 0)
+-- TOC entry 2305 (class 0 OID 0)
 -- Dependencies: 202
 -- Name: labores_labor_seq; Type: SEQUENCE OWNED BY; Schema: aplicacion; Owner: postgres
 --
@@ -640,7 +640,7 @@ CREATE SEQUENCE facturaciones_factura_seq
 ALTER TABLE facturaciones_factura_seq OWNER TO postgres;
 
 --
--- TOC entry 2304 (class 0 OID 0)
+-- TOC entry 2306 (class 0 OID 0)
 -- Dependencies: 204
 -- Name: facturaciones_factura_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -686,7 +686,7 @@ CREATE SEQUENCE facturas_detalle_factura_detalle_seq
 ALTER TABLE facturas_detalle_factura_detalle_seq OWNER TO postgres;
 
 --
--- TOC entry 2305 (class 0 OID 0)
+-- TOC entry 2307 (class 0 OID 0)
 -- Dependencies: 206
 -- Name: facturas_detalle_factura_detalle_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -705,19 +705,19 @@ ALTER TABLE ONLY interacciones ALTER COLUMN interaccion SET DEFAULT nextval('int
 
 
 --
+-- TOC entry 2105 (class 2604 OID 96733)
+-- Name: id; Type: DEFAULT; Schema: administracion; Owner: postgres
+--
+
+ALTER TABLE ONLY interacciones_x_recursos ALTER COLUMN id SET DEFAULT nextval('recursos_x_roles_id_seq'::regclass);
+
+
+--
 -- TOC entry 2104 (class 2604 OID 96722)
 -- Name: recurso; Type: DEFAULT; Schema: administracion; Owner: postgres
 --
 
 ALTER TABLE ONLY recursos ALTER COLUMN recurso SET DEFAULT nextval('recursos_recurso_seq'::regclass);
-
-
---
--- TOC entry 2105 (class 2604 OID 96733)
--- Name: id; Type: DEFAULT; Schema: administracion; Owner: postgres
---
-
-ALTER TABLE ONLY recursos_x_roles ALTER COLUMN id SET DEFAULT nextval('recursos_x_roles_id_seq'::regclass);
 
 
 --
@@ -805,7 +805,7 @@ ALTER TABLE ONLY facturas_detalle ALTER COLUMN factura_detalle SET DEFAULT nextv
 
 
 --
--- TOC entry 2283 (class 2613 OID 33442)
+-- TOC entry 2285 (class 2613 OID 33442)
 -- Name: 33442; Type: BLOB; Schema: -; Owner: postgres
 --
 
@@ -817,7 +817,7 @@ ALTER LARGE OBJECT 33442 OWNER TO postgres;
 SET search_path = administracion, pg_catalog;
 
 --
--- TOC entry 2255 (class 0 OID 96571)
+-- TOC entry 2257 (class 0 OID 96571)
 -- Dependencies: 183
 -- Data for Name: interacciones; Type: TABLE DATA; Schema: administracion; Owner: postgres
 --
@@ -830,20 +830,72 @@ COPY interacciones (interaccion, nombre_interaccion, modulo, orden, url) FROM st
 11	Funcionarios	20	0	/Aplicacion/Funcionario/Lista.jspx
 14	Labores	30	0	/Aplicacion/Labor/Lista.jspx
 15	Gestiones	20	0	/Aplicacion/Gestion/Lista.jspx
+4	Recursos	10	4	/Sistema/Recurso/Lista.jspx
 \.
 
 
 --
--- TOC entry 2306 (class 0 OID 0)
+-- TOC entry 2308 (class 0 OID 0)
 -- Dependencies: 184
 -- Name: interacciones_interaccion_seq; Type: SEQUENCE SET; Schema: administracion; Owner: postgres
 --
 
-SELECT pg_catalog.setval('interacciones_interaccion_seq', 15, true);
+SELECT pg_catalog.setval('interacciones_interaccion_seq', 17, true);
 
 
 --
--- TOC entry 2257 (class 0 OID 96577)
+-- TOC entry 2284 (class 0 OID 96730)
+-- Dependencies: 210
+-- Data for Name: interacciones_x_recursos; Type: TABLE DATA; Schema: administracion; Owner: postgres
+--
+
+COPY interacciones_x_recursos (id, recurso, interaccion) FROM stdin;
+4	9	1
+6	11	1
+7	12	1
+8	13	1
+9	14	2
+10	15	2
+11	16	2
+12	17	2
+13	18	2
+15	19	5
+16	20	3
+17	21	3
+18	22	3
+19	23	3
+20	24	3
+21	25	4
+22	26	4
+23	27	4
+24	28	4
+25	29	4
+26	30	5
+27	31	5
+28	32	5
+29	34	5
+30	35	11
+31	36	11
+32	37	11
+33	38	11
+34	39	11
+35	40	15
+36	41	15
+37	42	15
+38	43	15
+39	44	15
+40	45	14
+41	46	14
+42	47	14
+43	48	14
+44	49	14
+47	10	1
+48	50	4
+\.
+
+
+--
+-- TOC entry 2259 (class 0 OID 96577)
 -- Dependencies: 185
 -- Data for Name: modulos; Type: TABLE DATA; Schema: administracion; Owner: postgres
 --
@@ -856,58 +908,88 @@ COPY modulos (modulo, descripcion) FROM stdin;
 
 
 --
--- TOC entry 2280 (class 0 OID 96719)
+-- TOC entry 2282 (class 0 OID 96719)
 -- Dependencies: 208
 -- Data for Name: recursos; Type: TABLE DATA; Schema: administracion; Owner: postgres
 --
 
-COPY recursos (recurso, direccion) FROM stdin;
+COPY recursos (recurso, url) FROM stdin;
+9	/Sistema/Usuario/Lista.jspx
+10	/Sistema/Usuario/Agregar.jspx
+11	/Sistema/Usuario/Borrar.jspx
+12	/Sistema/Usuario/Editar.jspx
+13	/Sistema/Usuario/Registro.jspx
+14	/Sistema/Rol/Agregar.jspx
+15	/Sistema/Rol/Borrar.jspx
+16	/Sistema/Rol/Editar.jspx
+17	/Sistema/Rol/Lista.jspx
+18	/Sistema/Rol/Registro.jspx
+19	/Aplicacion/Cliente/Lista.jspx
+20	/Sistema/Interaccion/Agregar.jspx
+21	/Sistema/Interaccion/Borrar.jspx
+22	/Sistema/Interaccion/Editar.jspx
+23	/Sistema/Interaccion/Lista.jspx
+24	/Sistema/Interaccion/Registro.jspx
+25	/Sistema/Recurso/Agregar.jspx
+26	/Sistema/Recurso/Borrar.jspx
+27	/Sistema/Recurso/Editar.jspx
+28	/Sistema/Recurso/Lista.jspx
+29	/Sistema/Recurso/Registro.jspx
+30	/Aplicacion/Cliente/Agregar.jspx
+31	/Aplicacion/Cliente/Borrar.jspx
+32	/Aplicacion/Cliente/Editar.jspx
+34	/Aplicacion/Cliente/Registro.jspx
+35	/Aplicacion/Funcionario/Agregar.jspx
+36	/Aplicacion/Funcionario/Borrar.jspx
+37	/Aplicacion/Funcionario/Lista.jspx
+38	/Aplicacion/Funcionario/Registro.jspx
+39	/Aplicacion/Funcionario/Editar.jspx
+40	/Aplicacion/Gestion/Lista.jspx
+41	/Aplicacion/Gestion/Borrar.jspx
+42	/Aplicacion/Gestion/Editar.jspx
+43	/Aplicacion/Gestion/Registro.jspx
+44	/Aplicacion/Gestion/Agregar.jspx
+45	/Aplicacion/Labor/Agregar.jspx
+46	/Aplicacion/Labor/Borrar.jspx
+47	/Aplicacion/Labor/Editar.jspx
+48	/Aplicacion/Labor/Lista.jspx
+49	/Aplicacion/Labor/Registro.jspx
+50	/Recurso/Linea.json
 \.
 
 
 --
--- TOC entry 2307 (class 0 OID 0)
+-- TOC entry 2309 (class 0 OID 0)
 -- Dependencies: 207
 -- Name: recursos_recurso_seq; Type: SEQUENCE SET; Schema: administracion; Owner: postgres
 --
 
-SELECT pg_catalog.setval('recursos_recurso_seq', 1, false);
+SELECT pg_catalog.setval('recursos_recurso_seq', 52, true);
 
 
 --
--- TOC entry 2282 (class 0 OID 96730)
--- Dependencies: 210
--- Data for Name: recursos_x_roles; Type: TABLE DATA; Schema: administracion; Owner: postgres
---
-
-COPY recursos_x_roles (id, rol, recurso) FROM stdin;
-\.
-
-
---
--- TOC entry 2308 (class 0 OID 0)
+-- TOC entry 2310 (class 0 OID 0)
 -- Dependencies: 209
 -- Name: recursos_x_roles_id_seq; Type: SEQUENCE SET; Schema: administracion; Owner: postgres
 --
 
-SELECT pg_catalog.setval('recursos_x_roles_id_seq', 1, false);
+SELECT pg_catalog.setval('recursos_x_roles_id_seq', 48, true);
 
 
 --
--- TOC entry 2258 (class 0 OID 96583)
+-- TOC entry 2260 (class 0 OID 96583)
 -- Dependencies: 186
 -- Data for Name: roles; Type: TABLE DATA; Schema: administracion; Owner: postgres
 --
 
 COPY roles (rol, nombre_rol) FROM stdin;
 1	admistrador
-5	gasdgasdgasdgf
-2	gerente rol
+2	Supervisor
 \.
 
 
 --
--- TOC entry 2309 (class 0 OID 0)
+-- TOC entry 2311 (class 0 OID 0)
 -- Dependencies: 187
 -- Name: roles_rol_seq; Type: SEQUENCE SET; Schema: administracion; Owner: postgres
 --
@@ -916,7 +998,7 @@ SELECT pg_catalog.setval('roles_rol_seq', 6, true);
 
 
 --
--- TOC entry 2260 (class 0 OID 96588)
+-- TOC entry 2262 (class 0 OID 96588)
 -- Dependencies: 188
 -- Data for Name: roles_x_interacciones; Type: TABLE DATA; Schema: administracion; Owner: postgres
 --
@@ -926,7 +1008,6 @@ COPY roles_x_interacciones (id, rol, interaccion) FROM stdin;
 3	1	3
 4	1	4
 6	1	6
-7	2	4
 8	2	5
 9	2	6
 24	5	1
@@ -938,20 +1019,22 @@ COPY roles_x_interacciones (id, rol, interaccion) FROM stdin;
 40	1	13
 41	1	14
 42	1	15
+44	2	15
+46	2	11
 \.
 
 
 --
--- TOC entry 2310 (class 0 OID 0)
+-- TOC entry 2312 (class 0 OID 0)
 -- Dependencies: 189
 -- Name: roles_x_interacciones_id_seq; Type: SEQUENCE SET; Schema: administracion; Owner: postgres
 --
 
-SELECT pg_catalog.setval('roles_x_interacciones_id_seq', 42, true);
+SELECT pg_catalog.setval('roles_x_interacciones_id_seq', 46, true);
 
 
 --
--- TOC entry 2262 (class 0 OID 96593)
+-- TOC entry 2264 (class 0 OID 96593)
 -- Dependencies: 190
 -- Data for Name: usuarios; Type: TABLE DATA; Schema: administracion; Owner: postgres
 --
@@ -959,12 +1042,12 @@ SELECT pg_catalog.setval('roles_x_interacciones_id_seq', 42, true);
 COPY usuarios (usuario, cuenta, clave) FROM stdin;
 1	admin	d41d8cd98f00b204e9800998ecf8427e
 2	gerente	d41d8cd98f00b204e9800998ecf8427e
-6	jfkjakfa	d41d8cd98f00b204e9800998ecf8427e
+6	sonia	d41d8cd98f00b204e9800998ecf8427e
 \.
 
 
 --
--- TOC entry 2311 (class 0 OID 0)
+-- TOC entry 2313 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: usuarios_usuario_seq; Type: SEQUENCE SET; Schema: administracion; Owner: postgres
 --
@@ -973,32 +1056,31 @@ SELECT pg_catalog.setval('usuarios_usuario_seq', 7, true);
 
 
 --
--- TOC entry 2264 (class 0 OID 96598)
+-- TOC entry 2266 (class 0 OID 96598)
 -- Dependencies: 192
 -- Data for Name: usuarios_x_roles; Type: TABLE DATA; Schema: administracion; Owner: postgres
 --
 
 COPY usuarios_x_roles (id, usuario, rol) FROM stdin;
 1	1	1
-2	2	2
-8	6	1
 16	6	5
+20	6	2
 \.
 
 
 --
--- TOC entry 2312 (class 0 OID 0)
+-- TOC entry 2314 (class 0 OID 0)
 -- Dependencies: 193
 -- Name: usuarios_x_roles_id_seq; Type: SEQUENCE SET; Schema: administracion; Owner: postgres
 --
 
-SELECT pg_catalog.setval('usuarios_x_roles_id_seq', 18, true);
+SELECT pg_catalog.setval('usuarios_x_roles_id_seq', 20, true);
 
 
 SET search_path = aplicacion, pg_catalog;
 
 --
--- TOC entry 2266 (class 0 OID 96603)
+-- TOC entry 2268 (class 0 OID 96603)
 -- Dependencies: 194
 -- Data for Name: clientes; Type: TABLE DATA; Schema: aplicacion; Owner: postgres
 --
@@ -1012,7 +1094,7 @@ COPY clientes (cliente, ruc, cliente_tipo, cedula, nombre, apellido, razon_socia
 
 
 --
--- TOC entry 2313 (class 0 OID 0)
+-- TOC entry 2315 (class 0 OID 0)
 -- Dependencies: 195
 -- Name: clientes_cliente_seq; Type: SEQUENCE SET; Schema: aplicacion; Owner: postgres
 --
@@ -1021,7 +1103,7 @@ SELECT pg_catalog.setval('clientes_cliente_seq', 9, true);
 
 
 --
--- TOC entry 2268 (class 0 OID 96611)
+-- TOC entry 2270 (class 0 OID 96611)
 -- Dependencies: 196
 -- Data for Name: funcionario_categoria; Type: TABLE DATA; Schema: aplicacion; Owner: postgres
 --
@@ -1033,7 +1115,7 @@ COPY funcionario_categoria (categoria, descripcion) FROM stdin;
 
 
 --
--- TOC entry 2269 (class 0 OID 96617)
+-- TOC entry 2271 (class 0 OID 96617)
 -- Dependencies: 197
 -- Data for Name: funcionarios; Type: TABLE DATA; Schema: aplicacion; Owner: postgres
 --
@@ -1044,7 +1126,7 @@ COPY funcionarios (funcionario, cedula, nombre, apellido, fecha_nacimiento, cate
 
 
 --
--- TOC entry 2314 (class 0 OID 0)
+-- TOC entry 2316 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: funcionarios_funcionario_seq; Type: SEQUENCE SET; Schema: aplicacion; Owner: postgres
 --
@@ -1053,7 +1135,7 @@ SELECT pg_catalog.setval('funcionarios_funcionario_seq', 7, true);
 
 
 --
--- TOC entry 2271 (class 0 OID 96627)
+-- TOC entry 2273 (class 0 OID 96627)
 -- Dependencies: 199
 -- Data for Name: gestiones; Type: TABLE DATA; Schema: aplicacion; Owner: postgres
 --
@@ -1086,7 +1168,7 @@ COPY gestiones (gestion, cliente, fecha, solicito, destino, gestor, ciudad, labo
 
 
 --
--- TOC entry 2315 (class 0 OID 0)
+-- TOC entry 2317 (class 0 OID 0)
 -- Dependencies: 200
 -- Name: gestiones_gestion_seq; Type: SEQUENCE SET; Schema: aplicacion; Owner: postgres
 --
@@ -1095,7 +1177,7 @@ SELECT pg_catalog.setval('gestiones_gestion_seq', 47, true);
 
 
 --
--- TOC entry 2273 (class 0 OID 96635)
+-- TOC entry 2275 (class 0 OID 96635)
 -- Dependencies: 201
 -- Data for Name: labores; Type: TABLE DATA; Schema: aplicacion; Owner: postgres
 --
@@ -1108,7 +1190,7 @@ COPY labores (labor, descripcion) FROM stdin;
 
 
 --
--- TOC entry 2316 (class 0 OID 0)
+-- TOC entry 2318 (class 0 OID 0)
 -- Dependencies: 202
 -- Name: labores_labor_seq; Type: SEQUENCE SET; Schema: aplicacion; Owner: postgres
 --
@@ -1119,7 +1201,7 @@ SELECT pg_catalog.setval('labores_labor_seq', 5, true);
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 2317 (class 0 OID 0)
+-- TOC entry 2319 (class 0 OID 0)
 -- Dependencies: 204
 -- Name: facturaciones_factura_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1128,7 +1210,7 @@ SELECT pg_catalog.setval('facturaciones_factura_seq', 33, true);
 
 
 --
--- TOC entry 2275 (class 0 OID 96643)
+-- TOC entry 2277 (class 0 OID 96643)
 -- Dependencies: 203
 -- Data for Name: facturas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1139,7 +1221,7 @@ COPY facturas (factura, numero_factura, fecha_factura, cliente, gravada0, gravad
 
 
 --
--- TOC entry 2277 (class 0 OID 96656)
+-- TOC entry 2279 (class 0 OID 96656)
 -- Dependencies: 205
 -- Data for Name: facturas_detalle; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1150,7 +1232,7 @@ COPY facturas_detalle (factura_detalle, factura, descripcion, cantidad, precio_u
 
 
 --
--- TOC entry 2318 (class 0 OID 0)
+-- TOC entry 2320 (class 0 OID 0)
 -- Dependencies: 206
 -- Name: facturas_detalle_factura_detalle_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1159,7 +1241,7 @@ SELECT pg_catalog.setval('facturas_detalle_factura_detalle_seq', 18, true);
 
 
 --
--- TOC entry 2284 (class 0 OID 0)
+-- TOC entry 2286 (class 0 OID 0)
 -- Data for Name: BLOBS; Type: BLOBS; Schema: -; Owner: 
 --
 
@@ -1195,6 +1277,15 @@ ALTER TABLE ONLY usuarios_x_roles
 
 
 --
+-- TOC entry 2141 (class 2606 OID 96741)
+-- Name: interaccion_x_recursos_pkey; Type: CONSTRAINT; Schema: administracion; Owner: postgres
+--
+
+ALTER TABLE ONLY interacciones_x_recursos
+    ADD CONSTRAINT interaccion_x_recursos_pkey PRIMARY KEY (recurso, interaccion);
+
+
+--
 -- TOC entry 2107 (class 2606 OID 96686)
 -- Name: interacciones_pkey; Type: CONSTRAINT; Schema: administracion; Owner: postgres
 --
@@ -1204,7 +1295,7 @@ ALTER TABLE ONLY interacciones
 
 
 --
--- TOC entry 2137 (class 2606 OID 96727)
+-- TOC entry 2137 (class 2606 OID 96739)
 -- Name: recursos_pkey; Type: CONSTRAINT; Schema: administracion; Owner: postgres
 --
 
@@ -1213,12 +1304,12 @@ ALTER TABLE ONLY recursos
 
 
 --
--- TOC entry 2139 (class 2606 OID 96735)
--- Name: recursos_x_roles_pkey; Type: CONSTRAINT; Schema: administracion; Owner: postgres
+-- TOC entry 2139 (class 2606 OID 96743)
+-- Name: recursos_url_key; Type: CONSTRAINT; Schema: administracion; Owner: postgres
 --
 
-ALTER TABLE ONLY recursos_x_roles
-    ADD CONSTRAINT recursos_x_roles_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY recursos
+    ADD CONSTRAINT recursos_url_key UNIQUE (url);
 
 
 --
@@ -1334,7 +1425,7 @@ ALTER TABLE ONLY facturas
 
 
 --
--- TOC entry 2140 (class 2606 OID 96711)
+-- TOC entry 2142 (class 2606 OID 96711)
 -- Name: facturas_detalle_factura_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1343,7 +1434,7 @@ ALTER TABLE ONLY facturas_detalle
 
 
 --
--- TOC entry 2291 (class 0 OID 0)
+-- TOC entry 2293 (class 0 OID 0)
 -- Dependencies: 9
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -1354,7 +1445,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2017-12-01 11:25:47
+-- Completed on 2018-02-23 17:30:25
 
 --
 -- PostgreSQL database dump complete

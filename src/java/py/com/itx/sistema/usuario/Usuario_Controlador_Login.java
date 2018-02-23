@@ -8,6 +8,7 @@ package py.com.itx.sistema.usuario;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import py.com.itx.sistema.modulo.Modulo;
 import py.com.itx.sistema.modulo.ModuloDAO;
+import py.com.itx.sistema.recurso.Recurso;
 
 
 
@@ -67,15 +69,31 @@ public class Usuario_Controlador_Login extends HttpServlet {
         }        
         else
         {            
-            
+
             // modulos
             ModuloDAO moduloDAO = new ModuloDAO();            
             List<Modulo> ListaModulos = moduloDAO.ModuloListar(usuario);
             request.getSession().setAttribute("SessionModulos", ListaModulos);                   
             
-            
-            
             request.getSession().setAttribute("SessionUsuario", usuario);  
+            
+            
+            List<Recurso> listaRecurso = new ArrayList<Recurso>();  
+            
+            
+            Recurso r1 = new Recurso();
+            r1.setUrl("/Menu/Indice.jspx");            
+            listaRecurso.add(r1);
+            
+            Recurso r2 = new Recurso();
+            r2.setUrl("/Menu/Mostrar.jspx");            
+            listaRecurso.add(r2);            
+            
+            
+            request.getSession().setAttribute("SessionRecursos", listaRecurso);                   
+            
+            
+            
             response.sendRedirect("../Menu/Indice.jspx");                     
             
         }            

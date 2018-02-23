@@ -74,7 +74,6 @@ window.onresize = function() {
 
 
 
-
 function Recursos_Tabulaciones() {
     
     
@@ -84,33 +83,31 @@ function Recursos_Tabulaciones() {
         tab_interaccion.classList.remove('select');  
     }
     
-
+    
     tab_interaccion.addEventListener('click',
         function()
         {         
             
-            
             fxDesmarcar();
             tab_interaccion.setAttribute("class", "select");    
             
-            AjaxPeticion( getRutaAbsoluta()+'/RolInteraccion/Coleccion/Interaccion?rol='
-                + document.getElementById('rolf_rol').value 
+            AjaxPeticion( getRutaAbsoluta()+'/InteraccionRecurso/Coleccion/Interaccion?recurso='
+                + document.getElementById('recurf_recurso').value 
                 +""  
                 +"&page="+"1"
                 ,'tab_contenido');                                 
     
-            RolInteraccion_tabla_registro_Interaccion("rolinteraccion_interaccion_tabla");
-                        
-            var riir_agregar_roles = document.getElementById('riir_agregar_roles');
-            riir_agregar_roles.addEventListener('click',
+            InteraccionRecurso_tabla_registro_Interaccion ("interaccionRecurso_recurso_tabla");
+    
+            var irra_agregar_interaccion = document.getElementById('irra_agregar_interaccion');
+            irra_agregar_interaccion.addEventListener('click',
                 function()
-                {                                       
-                    RolInteraccion_modal_agregar_Interaccion(  document.getElementById('rolf_rol').value );            
+                {     
+                    InteraccionRecurso_modal_agregar_Interaccion(  document.getElementById('recurf_recurso').value );            
                 },
                 false
             );                                        
     
-  
         },
         false
     );      
@@ -118,5 +115,9 @@ function Recursos_Tabulaciones() {
     tab_interaccion.click();
 
 }
+
+
+
+
 
 

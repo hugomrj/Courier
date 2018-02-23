@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import nebuleuse.ORM.Persistencia;
+import py.com.itx.sistema.usuario.UsuarioSeguridadBean;
 
 /**
  * @author hugo
@@ -37,8 +38,21 @@ public class RecursoJSON extends HttpServlet {
         response.setContentType("application/json;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         
-                
+        
         PrintWriter out = response.getWriter();
+        
+                
+        // aca hay que hacer un control si el usuario puede usar este recurso
+        
+        
+        
+        if (!( new UsuarioSeguridadBean().isAccesoServlet(request))) {   
+            out.println("error403");  
+            return;
+        }
+        
+        
+        
         try 
         {
             

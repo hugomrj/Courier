@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = {"/Usuario/Session"})
 
 
-public class UsuarioSession extends HttpServlet {
+public class Usuario_Controlador_Session extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

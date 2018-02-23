@@ -90,4 +90,41 @@ public class UsuarioDAO  {
     }            
 
     
+        
+
+        public boolean  isPermitidoRecurso  ( Usuario usuario, String path )                
+            throws Exception {
+                
+            
+                statement = conexion.getConexion().createStatement();     
+                
+                String sql = new UsuarioSQL().UsuarioRecurso(usuario, path);
+              
+                
+                resultset = statement.executeQuery(sql);     
+                
+                if (resultset.next() == false) { 
+                    return false ;
+                }
+                else{
+                    return true ;
+                }
+                
+                
+             
+    }            
+
+            
+        
+        
+        
+        
+
+
+
+        
+        
+        
+        
+        
 }

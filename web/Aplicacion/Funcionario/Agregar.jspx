@@ -17,7 +17,7 @@
             
             <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=2.0" />    
             <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>   
-            <jsp:directive.include file= "../../WEB-INF/jspf/sessiones.jspf"/>
+            <jsp:directive.include file="../../WEB-INF/jspf/SeguridadSession.jspx"/>
             
             
             <style type="text/css" >            

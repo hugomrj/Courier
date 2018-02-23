@@ -5,12 +5,15 @@
 
 
 <%    
+    
+    /*
     session = request.getSession();
     if (session.getAttribute("SessionUsuario") == null)
-    {        
+    { 
+*/
  %>
      <% response.sendRedirect( request.getContextPath() +"/login.jspx"); %>        
  <%
-    }
+   /* }*/
  %> 
 

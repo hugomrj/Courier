@@ -58,6 +58,9 @@ public class Usuario {
                     + "and clave like md5('"+pass+"')" ;  
           
 
+
+        
+        
           Persistencia persistencia = new Persistencia();            
           objUsuario = (Usuario) persistencia.sqlToObject(sql, objUsuario);
           
